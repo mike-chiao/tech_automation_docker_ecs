@@ -6,6 +6,7 @@ RUN yum upgrade python-setuptools
 
 ENV PATH ~/.local/bin:$PATH
 
+RUN easy_install pip
 RUN python --version
 RUN hash -r
 RUN type python
