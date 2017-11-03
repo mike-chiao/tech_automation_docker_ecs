@@ -1,15 +1,16 @@
 FROM centos:latest
 
 RUN yum -y update
-RUN yum -y install python-pip PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git which zip pylint
+RUN yum -y install python-pip python-wheel PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git which zip pylint
+RUN yum upgrade python-setuptools
 
 ENV PATH ~/.local/bin:$PATH
 
 RUN echo $PATH
 RUN which pip
-RUN mkdir /etc/ansible/
-RUN echo -e '[local]\nlocalhost' > /etc/ansible/hosts
-RUN pip install ansible==2.3.0.0
+#RUN mkdir /etc/ansible/
+#RUN echo -e '[local]\nlocalhost' > /etc/ansible/hosts
+#RUN pip install ansible==2.3.0.0
 #RUN pip install -U boto3
 #RUN pip install -U boto
 #RUN pip install --upgrade --user awscli
