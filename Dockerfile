@@ -1,5 +1,6 @@
 FROM centos:latest
 
+RUN yum update
 RUN yum -y install python-pip PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git which zip pylint
 
 #RUN mkdir /etc/ansible/
