@@ -9,11 +9,11 @@ phases:
   build:
     commands:
         - echo Build started on `date`
-        - echo Building the Docker image...        - 
+        - echo Building the Docker image...
         - docker build -t gijenkins .
-        - docker tag gijenkins:tech_automation_docker $AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/gijenkins:tech_automation_docker
+        - docker tag gijenkins:tech_automation_docker 452161641512.dkr.ecr.ap-southeast-2.amazonaws.com/gijenkins:tech_automation_docker
   post_build:
     commands:
        - echo Build completed on `date`
        - echo Pushing the Docker image...
-       - docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-southeast-2.amazonaws.com/gijenkins:tech_automation_docker
+       - docker push 452161641512.dkr.ecr.ap-southeast-2.amazonaws.com/gijenkins:tech_automation_docker
