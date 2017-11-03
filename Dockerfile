@@ -6,10 +6,9 @@ RUN yum upgrade python-setuptools
 
 ENV PATH ~/.local/bin:$PATH
 
-RUN echo $PATH
-RUN which pip
-RUN which python
 RUN python --version
+RUN which python
+RUN which pip
 #RUN mkdir /etc/ansible/
 #RUN echo -e '[local]\nlocalhost' > /etc/ansible/hosts
 #RUN pip install ansible==2.3.0.0
