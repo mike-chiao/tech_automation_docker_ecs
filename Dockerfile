@@ -7,6 +7,7 @@ RUN yum upgrade python-setuptools
 ENV PATH ~/.local/bin:$PATH
 
 RUN python --version
+RUN hash -r
 RUN which python
 RUN which pip
 #RUN mkdir /etc/ansible/
