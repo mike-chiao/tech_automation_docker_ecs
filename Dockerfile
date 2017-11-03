@@ -8,8 +8,8 @@ ENV PATH ~/.local/bin:$PATH
 
 RUN python --version
 RUN hash -r
-RUN which python
-RUN which pip
+RUN type python
+RUN type pip
 #RUN mkdir /etc/ansible/
 #RUN echo -e '[local]\nlocalhost' > /etc/ansible/hosts
 #RUN pip install ansible==2.3.0.0
