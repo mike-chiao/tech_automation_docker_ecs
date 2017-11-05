@@ -10,11 +10,11 @@ python-httplib2 \
 python-keyczar \
 python-paramiko \
 python-setuptools \
-git\
-which\
-zip\
-pylint\
-gcc\
+git \
+which \
+zip \
+pylint \
+gcc \
 gcc-c++
 
 RUN yum upgrade python-setuptools
