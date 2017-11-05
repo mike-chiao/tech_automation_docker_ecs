@@ -1,5 +1,6 @@
 FROM centos:latest
 
+RUN yum -y install epel-release gcc gcc-c++
 RUN yum -y update
 RUN yum -y install \
 python-pip \
@@ -16,7 +17,6 @@ zip \
 
 RUN yum upgrade python-setuptools
 #RUN yum -y install pylint
-RUN yum -y install epel-release gcc gcc-c++
 RUN yum -y install ansible-2.3.0.0
 
 ENV PATH ~/.local/bin:$PATH
