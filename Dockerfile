@@ -1,7 +1,22 @@
 FROM centos:latest
 
 RUN yum -y update
-RUN yum -y install python-pip python-wheel PyYAML python-jinja2 python-httplib2 python-keyczar python-paramiko python-setuptools git which zip pylint
+RUN yum -y install \
+python-pip \
+python-wheel \
+PyYAML \
+python-jinja2 \
+python-httplib2 \
+python-keyczar \
+python-paramiko \
+python-setuptools \
+git\
+which\
+zip\
+pylint\
+gcc\
+gcc-c++
+
 RUN yum upgrade python-setuptools
 
 ENV PATH ~/.local/bin:$PATH
