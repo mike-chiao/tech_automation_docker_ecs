@@ -13,18 +13,15 @@ python-setuptools \
 git \
 which \
 zip \
-pylint \
-gcc \
-gcc-c++
 
 RUN yum upgrade python-setuptools
+RUN yum -y install pylint
+RUN yum -y install epel-release gcc gcc-c++
+RUN yum -y install ansible-2.3.0.0
 
 ENV PATH ~/.local/bin:$PATH
 
 RUN easy_install pip
-RUN mkdir /etc/ansible/
-RUN echo -e '[local]\nlocalhost' > /etc/ansible/hosts
-RUN pip install ansible==2.3.0.0
 RUN pip install -U boto3
 RUN pip install -U boto
 RUN pip install --upgrade --user awscli
