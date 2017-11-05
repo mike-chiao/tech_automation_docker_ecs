@@ -15,7 +15,7 @@ which \
 zip \
 
 RUN yum upgrade python-setuptools
-RUN yum -y install pylint
+#RUN yum -y install pylint
 RUN yum -y install epel-release gcc gcc-c++
 RUN yum -y install ansible-2.3.0.0
 
