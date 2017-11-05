@@ -1,17 +1,21 @@
-PROJECT=techautomation
-GROUP=techautomation
-REGISTRY=rego
+PROJECT=tech_automation_docker_ecs
+REGISTRY=452161641512.dkr.ecr.ap-southeast-2.amazonaws.com
 
-build-base:
-	@echo "$(INFO) Preparing Docker build env image"
-	@git rev-parse --short HEAD > .git-tag
-	@docker build -t iag/$(PROJECT)-base .
+help: ## help target
+	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / \
+		{printf "\033[36m%-30s\033[0m  %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
+docker-login: ## Login
+	@$(aws ecr get-login --no-include-email --region ap-southeast-2)
 
-docker-login:
-	@docker login --username "$(bamboo_DOCKER_USERNAME)" --password "$(bamboo_DOCKER_PASSWORD)" $(REGISTRY)
+docker-build: ## Build
+	@docker build -t $(PROJECT) .
 
+docker-tag: ## Tag
+	@docker tag $(PROJECT):latest $(REGISTRY)/$(PROJECT):latest
 
-publish-base: docker-login build-base
-		@docker tag iag/$(PROJECT)-base $(REGISTRY)/$(GROUP)/$(PROJECT)-base
-		@docker push $(REGISTRY)/$(GROUP)/$(PROJECT)-base
+docker-push: ## Publish docker image
+	@docker push $(REGISTRY)/$(PROJECT):latest
+
+docker-pull: docker-login ## Pull docker image
+	@docker pull $(REGISTRY)/$(PROJECT):latest

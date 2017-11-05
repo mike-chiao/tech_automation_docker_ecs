@@ -5,15 +5,15 @@ phases:
     commands:
        - echo Logging in to Amazon ECR..
        - pip install awscli --upgrade --user
-       - $(aws ecr get-login --no-include-email --region ap-southeast-2)
+       - make docker-login
   build:
     commands:
         - echo Build started on `date`
         - echo Building the Docker image...
-        - docker build -t tech_automation_docker_ecs .
-        - docker tag tech_automation_docker_ecs:latest 452161641512.dkr.ecr.ap-southeast-2.amazonaws.com/tech_automation_docker_ecs:latest
+        - make docker-build
+        - make docker-tag
   post_build:
     commands:
        - echo Build completed on `date`
        - echo Pushing the Docker image...
-       - docker push 452161641512.dkr.ecr.ap-southeast-2.amazonaws.com/tech_automation_docker_ecs:latest
+       - make docker-push
