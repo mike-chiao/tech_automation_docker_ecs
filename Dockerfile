@@ -2,21 +2,21 @@ FROM centos:latest
 
 RUN yum -y update
 RUN yum -y install \
-python-pip \
-python-wheel \
-PyYAML \
-python-jinja2 \
-python-httplib2 \
-python-keyczar \
-python-paramiko \
-python-setuptools \
-python-devel \
-git \
-which \
-zip \
-gcc \
-gcc-c++ \
-pylint
+  python-pip \
+  python-wheel \
+  PyYAML \
+  python-jinja2 \
+  python-httplib2 \
+  python-keyczar \
+  python-paramiko \
+  python-setuptools \
+  python-devel \
+  git \
+  which \
+  zip \
+  gcc \
+  gcc-c++ \
+  pylint
 
 ENV PATH ~/.local/bin:$PATH
 
