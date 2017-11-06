@@ -15,7 +15,7 @@ git \
 which \
 zip \
 
-RUN yum upgrade python-setuptools
+#RUN yum upgrade python-setuptools
 RUN yum -y install pylint
 
 ENV PATH ~/.local/bin:$PATH
