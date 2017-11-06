@@ -16,5 +16,4 @@ phases:
     commands:
        - echo Build completed on `date`
        - echo Pushing the Docker image...
-       - make docker-login
        - make docker-push

@@ -14,7 +14,7 @@ docker-build: ## Build
 docker-tag: ## Tag
 	@docker tag $(PROJECT):latest $(REGISTRY)/$(PROJECT):latest
 
-docker-push: ## Publish docker image
+docker-push: docker-login ## Publish docker image
 	@docker push $(REGISTRY)/$(PROJECT):latest
 
 docker-pull: docker-login ## Pull docker image
