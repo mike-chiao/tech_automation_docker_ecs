@@ -1,6 +1,6 @@
 FROM centos:latest
 
-RUN yum -y install gcc gcc-c++
+RUN yum -y install gcc gcc-c++ pylint
 RUN yum -y update
 RUN yum -y install \
 python-pip \
@@ -16,7 +16,6 @@ which \
 zip \
 
 #RUN yum upgrade python-setuptools
-RUN yum -y install pylint
 
 ENV PATH ~/.local/bin:$PATH
 
