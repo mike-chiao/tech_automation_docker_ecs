@@ -20,7 +20,7 @@ zip \
 ENV PATH ~/.local/bin:$PATH
 
 RUN easy_install pip
-RUN pip install -U ansible=2.3.0.0
+RUN pip install -U ansible==2.3.0.0
 RUN pip install -U boto3
 RUN pip install -U boto
 RUN pip install --upgrade --user awscli
